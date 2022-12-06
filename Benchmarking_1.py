@@ -1,11 +1,13 @@
 
+# This program will simulate particles moving in a circular path at a constant speed. 
+# The purpose of this simulation is to improve performance of python program.
 class Particle:
     def __init__(self, x, y, ang_vel):
         self.x = x
         self.y = y
         self.ang_vel = ang_vel
 
-
+# To simulate the particles
 class ParticleSimulator:
 
     def __init__(self, particles):
@@ -31,7 +33,8 @@ class ParticleSimulator:
                 p.y += d_y
                 # 3. repeat for all the timesteps 
 
-            
+
+# To visualize the simulation            
 from matplotlib import pyplot as plt
 from matplotlib import animation
 
@@ -105,6 +108,7 @@ def test_evolve():
     assert fequal(p2.y, -0.365227)
     
 
+# This benchmark is to check how our code is performing
 from random import uniform
 
 def benchmark():
@@ -121,3 +125,10 @@ if __name__ == '__main__':
     # test_visualize()
     # test_evolve()
     benchmark()
+
+import timeit
+
+# result = timeit.timeit('benchmark()', setup='from __main__ import benchmark', number=10)
+# This result will return time periods of benchmark function execution.
+result = timeit.repeat('benchmark()', setup='from __main__ import benchmark', number=10, repeat=3)
+print(result)
