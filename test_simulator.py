@@ -29,3 +29,19 @@ def test_evolve(benchmark):
 
 # To run test using pytest run this command
 # pytest test_simulator.py::test_evolve
+
+# There are two ways to test the performance of this program by cProfile
+
+# First import the required things
+from simulator import benchmark
+import cProfile
+
+# Method 1: Run whole code
+cProfile.run("benchmark()")
+
+# Method 2 : To wrap it around the benchmark function
+pr =cProfile.Profile()
+pr.enable()
+benchmark()
+pr.disable()
+pr.print_stats()
