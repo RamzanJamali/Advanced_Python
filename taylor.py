@@ -34,3 +34,6 @@ if __name__ == '__main__':
 
 # First we need to generate cProfile output file, as follows (on commmand line):
 # python -m cProfile -o prof.out taylor.py
+# Then run following commands
+# pyprof2calltree -i prof.out -o prof.calltree
+# kcachegrind prof.calltree # or qcachegrind prof.calltree

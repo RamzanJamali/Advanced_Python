@@ -1,0 +1,75 @@
+event: ns : Nanoseconds
+events: ns
+summary: 109317800
+fl=taylor.py
+fn=<module>
+1 3700
+cfl=taylor.py
+cfn=benchmark
+calls=1 27
+1 109301400
+
+fl=taylor.py
+fn=factorial
+4 108440400
+cfl=taylor.py
+cfn=factorial
+calls=187250 4
+4 107974100
+
+fl=taylor.py
+fn=taylor_exp
+11 5300
+cfl=taylor.py
+cfn=<listcomp>
+calls=1 12
+11 73229400
+
+fl=taylor.py
+fn=<listcomp>
+12 287400
+cfl=taylor.py
+cfn=factorial
+calls=500 4
+12 72942000
+
+fl=taylor.py
+fn=taylor_sin
+15 463800
+cfl=taylor.py
+cfn=factorial
+calls=250 4
+15 35498400
+cfl=~
+cfn=<method 'append' of 'list' objects>
+calls=500 0
+15 91500
+
+fl=taylor.py
+fn=benchmark
+27 13000
+cfl=taylor.py
+cfn=taylor_exp
+calls=1 11
+27 73234700
+cfl=taylor.py
+cfn=taylor_sin
+calls=1 15
+27 36053700
+
+fl=~
+fn=<built-in method builtins.exec>
+0 12700
+cfl=taylor.py
+cfn=<module>
+calls=1 1
+0 109305100
+
+fl=~
+fn=<method 'append' of 'list' objects>
+0 91500
+
+fl=~
+fn=<method 'disable' of '_lsprof.Profiler' objects>
+0 1500
+
