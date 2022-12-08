@@ -37,3 +37,5 @@ if __name__ == '__main__':
 # Then run following commands
 # pyprof2calltree -i prof.out -o prof.calltree
 # kcachegrind prof.calltree # or qcachegrind prof.calltree
+
+# if the above command does not work then download qcachegrind program and run scripts manually
