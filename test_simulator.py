@@ -45,3 +45,9 @@ pr.enable()
 benchmark()
 pr.disable()
 pr.print_stats()
+
+
+# To disassemble the evolve first comment the @profile in simulator
+import dis
+
+dis.dis(ParticleSimulator.evolve)

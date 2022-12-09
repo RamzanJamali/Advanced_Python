@@ -1,4 +1,3 @@
-
 # This program will simulate particles moving in a circular path at a constant speed. 
 # The purpose of this simulation is to improve performance of python program.
 class Particle:
@@ -19,6 +18,7 @@ class ParticleSimulator:
     # and use this command on command line:
     # path_to_kernprof.exe -l -v path_to_simulator.py
     # simplified: kernprof.exe -l -v simulator.py
+
     #@profile
     def evolve(self, dt):
         timestep = 0.00001

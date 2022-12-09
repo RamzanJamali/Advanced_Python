@@ -45,3 +45,7 @@ pr.enable()
 benchmark()
 pr.disable()
 pr.print_stats()
+
+import dis
+
+dis.dis(ParticleSimulator.evolve_fast)
