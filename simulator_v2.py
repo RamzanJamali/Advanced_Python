@@ -2,6 +2,11 @@
 # This program will simulate particles moving in a circular path at a constant speed. 
 # The purpose of this simulation is to improve performance of python program.
 class Particle:
+
+    # To reduce memory usage add slots line.
+    # Its limitation is that it prevents the addition of attributes other than the ones specified in __slots__ 
+    __slots__ = ('x', 'y', 'ang_vel')
+
     def __init__(self, x, y, ang_vel):
         self.x = x
         self.y = y
@@ -95,5 +100,21 @@ def benchmark():
     simulator.evolve_fast(0.1)
     
 
+# to check memory usage run ipython (F5)
+# Enter following commnands: 1. %load_ext memory_profiler
+# 2. from simulator_v2 import benchmark_memory_2
+# 3. %mprun -f benchmark_memory_2 benchmark_memory_2() 
+@profile
+def benchmark_memory_2():
+    particles = [
+        Particle(uniform(-1.0, 1.0), uniform(-1.0, 1.0), uniform(-1.0, 1.0))
+        for i in range(100000)
+    ]
+
+    simulator = ParticleSimulator(particles)
+    simulator.evolve_fast(0.001)
+
+
 if __name__ == '__main__':
-    test_visualize()
+    # test_visualize()
+    pass

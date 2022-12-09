@@ -99,7 +99,22 @@ def benchmark():
 
     simulator = ParticleSimulator(particles)
     simulator.evolve(0.1)
-    
+
+
+# to check memory usage run ipython (F5)
+# Enter following commnands: 1. %load_ext memory_profiler
+# 2. from simulator import benchmark_memory
+# 3. %mprun -f benchmark_memory benchmark_memory() 
+@profile
+def benchmark_memory():
+    particles = [
+        Particle(uniform(-1.0, 1.0), uniform(-1.0, 1.0), uniform(-1.0, 1.0))
+        for i in range(100000)
+    ]
+
+    simulator = ParticleSimulator(particles)
+    simulator.evolve(0.001)
 
 if __name__ == '__main__':
-    test_visualize()
+    # test_visualize()
+    pass
