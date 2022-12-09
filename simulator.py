@@ -19,7 +19,7 @@ class ParticleSimulator:
     # and use this command on command line:
     # path_to_kernprof.exe -l -v path_to_simulator.py
     # simplified: kernprof.exe -l -v simulator.py
-    @profile
+    #@profile
     def evolve(self, dt):
         timestep = 0.00001
         nsteps = int(dt/timestep)

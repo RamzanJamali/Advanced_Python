@@ -58,7 +58,7 @@ def visualize(simulator):
 
     def animate(i):
         # We let the particle evolve for 0.01 time units
-        simulator.evolve(0.01)
+        simulator.evolve_fast(0.01)
         X = [p.x for p in simulator.particles]
         Y = [p.y for p in simulator.particles]
 
@@ -90,7 +90,7 @@ def benchmark():
     ]
 
     simulator = ParticleSimulator(particles)
-    simulator.evolve(0.1)
+    simulator.evolve_fast(0.1)
     
 
 if __name__ == '__main__':
