@@ -13,6 +13,13 @@ class ParticleSimulator:
     def __init__(self, particles):
         self.particles = particles
 
+    # The profile decorator is added to check time consumption line by line
+    # with line profiler
+    # To use line_profiler add @profile to function
+    # and use this command on command line:
+    # path_to_kernprof.exe -l -v path_to_simulator.py
+    # simplified: kernprof.exe -l -v simulator.py
+    @profile
     def evolve(self, dt):
         timestep = 0.00001
         nsteps = int(dt/timestep)
