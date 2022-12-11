@@ -104,7 +104,7 @@ def benchmark():
 # Enter following commnands: 1. %load_ext memory_profiler
 # 2. from simulator_v2 import benchmark_memory_2
 # 3. %mprun -f benchmark_memory_2 benchmark_memory_2() 
-@profile
+#@profile
 def benchmark_memory_2():
     particles = [
         Particle(uniform(-1.0, 1.0), uniform(-1.0, 1.0), uniform(-1.0, 1.0))
