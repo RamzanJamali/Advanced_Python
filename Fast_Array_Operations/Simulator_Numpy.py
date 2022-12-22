@@ -8,22 +8,14 @@ class Particle:
         self.y = y
         self.ang_vel = ang_vel
 
-# This program will simulate particles moving in a circular path at a constant speed. 
-# The purpose of this simulation is to improve performance of python program.
+
 # To simulate the particles
 class ParticleSimulator:
 
     def __init__(self, particles):
         self.particles = particles
 
-    # The profile decorator is added to check time consumption line by line
-    # with line profiler
-    # To use line_profiler add @profile to function
-    # and use this command on command line:
-    # path_to_kernprof.exe -l -v path_to_simulator.py
-    # simplified: kernprof.exe -l -v simulator.py
-
-    #@profile
+    # The first method utilizes numpy for simulation
     def evolve_numpy(self, dt):
         timestep = 0.00001
         nsteps = int(dt/timestep)
@@ -45,7 +37,7 @@ class ParticleSimulator:
             for i, p in enumerate(self.particles):
                 p.x, p.y = r_i[i]
 
-                
+    # The second method is normal and is from chapter 1            
     def evolve_python(self, dt):
         timestep = 0.00001
         nsteps = int(dt/timestep)
@@ -84,4 +76,12 @@ def benchmark(npart=100, method='python'):
         simulator.evolve_numpy(0.1)
 
 if __name__ == '__main__':
-    benchmark(10, "python")
+    #benchmark(10, "python")
+    pass
+
+# To check performance use ipython: 
+# %timeit benchmark(100, "python")
+# and
+# %timeit benchmark(100, "numpy")
+
+# Result: You will see that numpy version is better for high number of particles.
