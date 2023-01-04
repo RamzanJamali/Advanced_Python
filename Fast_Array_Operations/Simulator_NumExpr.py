@@ -106,17 +106,12 @@ def benchmark(npart=100, method='python'):
 
 if __name__ == '__main__':
     print("Python")
-    cProfile.run('benchmark(10000, "python")')
+    cProfile.run('benchmark(100, "python")')
     print("Numpy")
-    cProfile.run('benchmark(10000, "numpy")')
+    cProfile.run('benchmark(100, "numpy")')
     print("NumExpr")
-    cProfile.run('benchmark(10000, "numexpr")')
-    pass
-
-# To check performance use ipython: 
-# %timeit benchmark(100, "python")
-# and
-# %timeit benchmark(100, "numpy")
+    cProfile.run('benchmark(100, "numexpr")')
+    
 
 # Result: @ particles = 1000
 # Python = 14.026
