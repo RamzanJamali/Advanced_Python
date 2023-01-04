@@ -22,22 +22,22 @@ class ParticleSimulator:
         timestep = 0.00001
         nsteps = int(dt/timestep)
         # nsteps = 1000 if dt = 0.01
+        r_i = np.array([[p.x, p.y] for p in self.particles])
+        ang_vel_i = np.array([p.ang_vel for p in self.particles])
+        
         for i in range(nsteps):
-            for p in self.particles:
-                # 1. Calculate the direction
-                px = p.x
-                py = p.y
-                norm = ne.evaluate('(px**2 + py**2)**0.5')
-                v_x = ne.evaluate("-py/norm")
-                v_y = ne.evaluate("px/norm")
-
-                # 2. Calculate the displacement
-                d_x = timestep * p.ang_vel * v_x
-                d_y = timestep * p.ang_vel * v_y
-
-                p.x += d_x
-                p.y += d_y
-                # 3. repeat for all the timesteps 
+            
+            norm_i = ne.evaluate("r_i ** 2")
+            norm_i = ne.evaluate("sum((norm_i), 1)")
+            norm_i = ne.evaluate("sqrt(norm_i)")
+            v_i = r_i[:, [1, 0]]
+            v_i[:, 0] *= -1
+            v_i /= norm_i[:, np.newaxis]
+            d_i = timestep * ang_vel_i[:, np.newaxis] * v_i
+            r_i += d_i
+            
+            for i, p in enumerate(self.particles):
+                p.x, p.y = r_i[i] 
 
         
     # The second method utilizes numpy for simulation
@@ -104,12 +104,15 @@ def benchmark(npart=100, method='python'):
         simulator.evolve_numexpr(0.1)
 
 if __name__ == '__main__':
-    cProfile.run('benchmark(10, "numexpr")')
-    pass
+    print("Python")
+    cProfile.run('benchmark(1000, "python")')
+    print("Numpy")
+    cProfile.run('benchmark(1000, "numpy")')
+    print("NumExpr")
+    cProfile.run('benchmark(1000, "numexpr")')
+    
 
-# To check performance use ipython: 
-# %timeit benchmark(100, "python")
-# and
-# %timeit benchmark(100, "numpy")
-
-# Result: You will see that numpy version is better for high number of particles.
+# Results @ particles = 1000
+# Python = 16.455 seconds
+# Numpy = 13.456 seconds
+# NumExpr = 15.074 seconds
