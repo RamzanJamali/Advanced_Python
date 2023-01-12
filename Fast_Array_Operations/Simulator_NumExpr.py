@@ -27,8 +27,7 @@ class ParticleSimulator:
         
         for i in range(nsteps):
             
-            norm_i = ne.evaluate("r_i ** 2")
-            norm_i = ne.evaluate("sum((norm_i), 1)")
+            norm_i = ne.evaluate("sum((r_i ** 2), 1)")
             norm_i = ne.evaluate("sqrt(norm_i)")
             v_i = r_i[:, [1, 0]]
             v_i[:, 0] *= -1
@@ -105,11 +104,11 @@ def benchmark(npart=100, method='python'):
 
 if __name__ == '__main__':
     print("Python")
-    cProfile.run('benchmark(1000, "python")')
+    cProfile.run('benchmark(100, "python")')
     print("Numpy")
-    cProfile.run('benchmark(1000, "numpy")')
+    cProfile.run('benchmark(100, "numpy")')
     print("NumExpr")
-    cProfile.run('benchmark(1000, "numexpr")')
+    cProfile.run('benchmark(100, "numexpr")')
     
 
 # Results @ particles = 1000
