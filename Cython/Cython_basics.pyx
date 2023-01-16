@@ -11,4 +11,23 @@ i = 0
 # Declaring multiple variables in single line
 cdef double a, b = 2.0
 
-print(a, b, i)
+# print(a, b, i)
+
+
+# Checking performance of declaring variables in cython
+def example_cython():
+    cdef int i, j = 0
+    for i in range(100):
+        j += 1
+
+    return j
+# %timeit example_cython()
+
+# Same thing in python
+def example_python():
+    j = 0
+    for i in range(100):
+        j += 1
+
+    return j
+# %timeit example_python()
