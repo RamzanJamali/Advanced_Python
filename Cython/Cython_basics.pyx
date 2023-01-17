@@ -63,3 +63,36 @@ cpdef int max_hybrid(int a, int b):
 # writing small functions in inline so that it can be efficient when calling multiple times
 cdef inline int max_inline(int a, int b):
     return a if a>b else b
+
+
+# Declaring Class in cython
+cdef class Point:
+    cdef double x
+    cdef double y
+    def __init__ (self, double x, double y):
+        self.x = x
+        self.y = y
+
+cdef double norm(Point p):
+    return (p.x**2 + p.y**2)**0.5
+
+# making object from class
+point_a = Point(2, 5)
+# Using class and function
+print(norm(point_a))
+
+# This will generate attribute error
+a = Point(0.0, 0.0)
+a.x
+
+# To access attributes from python code we use 'public' or 'readonly' specifiers
+cdef class Point:
+    cdef public double x
+    cdef public double y
+    def __init__ (self, double x, double y):
+        self.x = x
+        self.y = y
+
+# Now it will not attribute error
+a = Point(0.0, 0.0)
+a.x
