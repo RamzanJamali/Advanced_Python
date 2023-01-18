@@ -1,3 +1,5 @@
+# We will call our cython modules to calculate chebyshev distance.
+
 from mathlib cimport max
 
 def chebyshev(int x1, int y1, int x2, int y2):
