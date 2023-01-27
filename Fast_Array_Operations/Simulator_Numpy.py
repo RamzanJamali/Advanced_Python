@@ -34,8 +34,8 @@ class ParticleSimulator:
             d_i = timestep * ang_vel_i[:, np.newaxis] * v_i
             r_i += d_i
             
-            for i, p in enumerate(self.particles):
-                p.x, p.y = r_i[i]
+        for i, p in enumerate(self.particles):
+            p.x, p.y = r_i[i]
 
     # The second method is normal and is from chapter 1            
     def evolve_python(self, dt):
@@ -76,12 +76,14 @@ def benchmark(npart=100, method='python'):
         simulator.evolve_numpy(0.1)
 
 if __name__ == '__main__':
-    #benchmark(10, "python")
-    pass
+    benchmark(10, "python")
+    #pass
 
 # To check performance use ipython: 
 # %timeit benchmark(100, "python")
+# result = 788ms
 # and
 # %timeit benchmark(100, "numpy")
+# result = 345ms
 
 # Result: You will see that numpy version is better for high number of particles.

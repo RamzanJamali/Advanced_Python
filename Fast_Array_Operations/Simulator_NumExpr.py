@@ -35,8 +35,8 @@ class ParticleSimulator:
             d_i = timestep * ang_vel_i[:, np.newaxis] * v_i
             r_i += d_i
             
-            for i, p in enumerate(self.particles):
-                p.x, p.y = r_i[i] 
+        for i, p in enumerate(self.particles):
+            p.x, p.y = r_i[i] 
 
         
     # The second method utilizes numpy for simulation
@@ -58,8 +58,8 @@ class ParticleSimulator:
             d_i = timestep * ang_vel_i[:, np.newaxis] * v_i
             r_i += d_i
             
-            for i, p in enumerate(self.particles):
-                p.x, p.y = r_i[i]
+        for i, p in enumerate(self.particles):
+            p.x, p.y = r_i[i]
 
     # The third method is normal and is from chapter 1            
     def evolve_python(self, dt):
@@ -104,14 +104,14 @@ def benchmark(npart=100, method='python'):
 
 if __name__ == '__main__':
     print("Python")
-    cProfile.run('benchmark(100, "python")')
+    cProfile.run('benchmark(1000, "python")')
     print("Numpy")
-    cProfile.run('benchmark(100, "numpy")')
+    cProfile.run('benchmark(1000, "numpy")')
     print("NumExpr")
-    cProfile.run('benchmark(100, "numexpr")')
+    cProfile.run('benchmark(1000, "numexpr")')
     
 
 # Results @ particles = 1000
 # Python = 16.455 seconds
-# Numpy = 13.456 seconds
-# NumExpr = 15.074 seconds
+# Numpy = 0.55 seconds
+# NumExpr = 0.86 seconds
