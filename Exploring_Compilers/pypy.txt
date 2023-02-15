@@ -1,0 +1,25 @@
+Steps to use pypy:
+
+1. Downloading and installing pypy:
+    i. PyPy is distributed as a precompiled binary that can be downloaded from http://pypy.org/download.html
+        (Note: check the version compatibility)
+
+    ii. You can initialize a new virtual environment, where we can install additional packages using the following command:
+        path-to-pypy>pypy -m ensurepip
+        path-to-pypy>pypy -m pip install virtualenv
+        path-to-pypy/Scripts>virtualenv my-pypy-env
+
+    iii. Activating and deactivating virtualenv:
+        path-to-Scripts>activate
+        path-to-Scripts>deactivate
+
+    iv. Also install numpy and matplotlib in my-pypy-env using:
+        pip install numpy matplotlib
+    
+2. Using pypy:
+    i. activate pypy env
+    ii. path-to-simulator-file
+    iii. python -m timeit --setup "from simulator_v2 import benchmark" "benchmark()"
+    iv. To compare with Python, deactivate pypy and run same command:
+        python -m timeit --setup "from simulator_v2 import benchmark" "benchmark()"
+
