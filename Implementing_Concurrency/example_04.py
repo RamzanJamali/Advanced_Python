@@ -1,6 +1,8 @@
+# Futures pattern added to keep the track of the results of asynchronous calls.
 from concurrent.futures import Future
 import threading
 
+# we accept the callbacks and pass the results when they are ready
 def network_request_async(number):
     future = Future()
     result = {
@@ -11,7 +13,7 @@ def network_request_async(number):
     timer.start()
     return future
 
-
+# To attach a callback it is sufficient to pass a function to fut.add_done_callback method
 def fetch_square(number):
     fut = network_request_async(number)
 
