@@ -1,6 +1,9 @@
 import time
 
 
+# This code builds upon the previous code example of the "Timer" class. 
+# In addition to the "done()" method, a new method "on_timer_done()" 
+# is defined to specify a callback function to be called when the timer is done.
 class Timer:
     def __init__(self, timeout) -> None:
         self.timeout = timeout
@@ -16,7 +19,11 @@ class Timer:
 
 
 if __name__ == "__main__":
-    # First try
+
+    # Single callback
+    # The "while" loop repeatedly checks whether the timer is done, 
+    # and when it is, the callback function is called and the loop is broken.
+
     timer = Timer(1.0)
     timer.on_timer_done(lambda: print("Timer is done!"))
 
@@ -26,7 +33,11 @@ if __name__ == "__main__":
             break
 
 
-    # Second try
+    # Multiple callbacks
+    # The "while" loop repeatedly checks whether each timer in the list is done, and when a timer is done, 
+    # its corresponding callback function is called and the timer is removed from the list. 
+    # The loop exits when there are no more timers left in the list.
+
     timers = []
 
     timer1 = Timer(1.0)
