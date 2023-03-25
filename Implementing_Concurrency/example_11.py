@@ -1,5 +1,6 @@
 import asyncio
 
+# The code defines two asynchronous functions - "network_request" and "fetch_square".
 
 async def network_request(number):
     await asyncio.sleep(1.0)
@@ -11,7 +12,10 @@ async def fetch_square(number):
     if response["success"]:
         print("Number is: {}".format(response["result"]))
 
-
+# The main section of the code demonstrates how to run the "fetch_square" function for input numbers sequentially or 
+# concurrently using "loop.run_until_complete" and "asyncio.ensure_future", respectively. 
+# The program waits for 1 second for each network request and prints the calculated square of the input numbers 
+# to the console.
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
