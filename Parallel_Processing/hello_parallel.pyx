@@ -1,5 +1,6 @@
-#distutils: extra_compile_args = -openmp
-#distutils: extra_link_args = -openmp
+# distutils: language=c
+# cython: language_level=3
+
 
 from cython.parallel cimport prange
 import numpy as np 
