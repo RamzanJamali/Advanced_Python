@@ -21,6 +21,10 @@ cevolve = Extension(
 setup(
     name="Hello",
     ext_modules=cythonize([cevolve, hello_parallel]),
+    compiler_directives={'language_level': 3},
+    include_dirs=[],
+    extra_compile_args=['-fopenmp'],
+    extra_link_args=['-fopenmp'],
 )
 
 # Navigate to setup.py directory and run following command
