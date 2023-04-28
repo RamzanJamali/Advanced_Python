@@ -2,3 +2,12 @@
 Cython/cython_debugging.ipynb
 Cython/.ipynb_checkpoints/cython_debugging-checkpoint.ipynb
 /.vs/slnx.sqlite
+Parallel_Processing/build/lib.win-amd64-3.8/cevolve.cp38-win_amd64.pyd
+.gitignore
+Parallel_Processing/build/lib.win-amd64-3.8/hello_parallel.cp38-win_amd64.pyd
+Parallel_Processing/build/temp.win-amd64-3.8/Release/cevolve.cp38-win_amd64.exp
+Parallel_Processing/build/temp.win-amd64-3.8/Release/cevolve.cp38-win_amd64.lib
+Parallel_Processing/build/temp.win-amd64-3.8/Release/cevolve.obj
+Parallel_Processing/build/temp.win-amd64-3.8/Release/hello_parallel.cp38-win_amd64.exp
+Parallel_Processing/build/temp.win-amd64-3.8/Release/hello_parallel.cp38-win_amd64.lib
+Parallel_Processing/build/temp.win-amd64-3.8/Release/hello_parallel.obj
