@@ -5,10 +5,10 @@
     "distutils": {
         "depends": [],
         "extra_compile_args": [
-            "-fopenmp"
+            "/fopenmp"
         ],
         "extra_link_args": [
-            "-fopenmp"
+            "/fopenmp"
         ],
         "name": "cevolve",
         "sources": [
