@@ -5,7 +5,7 @@ import time
 
 def ping(url):
     res = requests.get(url)
-    print(f"{url}: {res.text}")
+    print(f"{url}: {res.text} \n")
 
 
 urls = [
