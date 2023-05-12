@@ -1,3 +1,6 @@
+# To apply concurrency, we can simply use the threading module that we have been
+# discussing to create separate threads to handle different web requests.
+
 import threading
 import requests
 import time
@@ -17,6 +20,10 @@ urls = [
     "http://httpstat.us/524",
 ]
 
+# we are including the sequential logic from the previous example to
+# process our URL list so that we can compare the speed improvement when we apply
+# threading to our ping test program.
+
 start = time.time()
 for url in urls:
     ping(url)
@@ -24,6 +31,10 @@ for url in urls:
 print(f"Sequential: {time.time() - start : .2f} seconds")
 
 print()
+
+# We are also creating a thread to ping each of the
+# URLs in our URL list using the threading module; these threads will be executed
+# independently from each other.
 
 start = time.time()
 threads = []
