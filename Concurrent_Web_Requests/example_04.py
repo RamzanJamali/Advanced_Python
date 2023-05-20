@@ -26,16 +26,22 @@ urls = [
     "http://httpstat.us/524",
 ]
 
+# The current time is recorded to measure the overall execution time.
 start = time.time()
 
+# A list comprehension is used to create multiple 'MyThread' instances, one for each URL in the 'urls' list.
 threads = [MyThread(url) for url in urls]
 for thread in threads:
     thread.start()
+# The main thread waits for all the child threads to complete execution by 
+# calling the 'join' method on each thread.
 for thread in threads:
     thread.join()
 for thread in threads:
     print(thread.result)
 
+# The total execution time is calculated by subtracting the start time 
+# from the current time, and it is printed with two decimal places.
 print(f"Took {time.time() - start : .2f} seconds")
 
 print("Done. ")
